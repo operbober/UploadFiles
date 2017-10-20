@@ -18,5 +18,6 @@ const ipAddress = config.server.ipAddress;
 const port = config.server.port;
 
 app.listen(port, ipAddress, () => {
-    console.log( "Listening on " + ipAddress + ":" + port );
-});
+    console.log("Listening on " + ipAddress + ":" + port);
+})
+;
