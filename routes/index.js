@@ -36,11 +36,14 @@ module.exports = (app, passport) => {
             file.path = req.files.upload.path;
             file.type = req.files.upload.type;
             file.size = req.files.upload.size;
-            file.save();
+            file.save(() => {
+                res.redirect('/main')
+            });
+
         } else {
             fs.unlink(req.files.upload.path)
+            res.redirect('/main')
         }
-        res.redirect('/main')
     });
 
     app.get('/download/:id', isLoggedIn, (req, res) => {
