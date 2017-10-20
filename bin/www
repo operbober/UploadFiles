@@ -1,0 +1,22 @@
+#!/usr/bin/env node
+
+/**
+ * Module dependencies.
+ */
+
+const app = require('../app');
+const debug = require('debug')('UploadFiles:server');
+const http = require('http');
+
+const config = require('../config/index');
+
+/**
+ * Get port from environment and store in Express.
+ */
+
+const ipAddress = config.server.ipAddress;
+const port = config.server.port;
+
+app.listen(port, ipAddress, () => {
+    console.log( "Listening on " + ipAddress + ":" + port );
+});
