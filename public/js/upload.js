@@ -24,4 +24,8 @@ $(function() {
         });
     });
 
+    $("#upload_form").on("submit", function(){
+        $("#overlay").addClass("overlay");
+    })
+
 });

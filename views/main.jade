@@ -7,7 +7,7 @@ block content
                 a.btn.btn-primary(href="/logout")
                     span.glyphicon.glyphicon-log-out #{" "} Logout
                 h4 Upload File :
-            form(method="POST" action="upload" enctype="multipart/form-data")
+            form#upload_form(method="POST" action="upload" enctype="multipart/form-data")
                 .col-lg-6.col-sm-6.col-12
                     .input-group(style="margin-bottom: 5px")
                         label.input-group-btn
