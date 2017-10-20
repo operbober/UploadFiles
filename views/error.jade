@@ -1,0 +1,14 @@
+extends layout
+
+block content
+    .main.container
+        .row
+            .col-md-12
+                .error-template
+                    h1 Oops!
+                    h2 #{error.status} #{message}
+                    .error-actions
+                        a.btn.btn-primary(href="/main")
+                            span.glyphicon.glyphicon-home #{" "} Take Me Home
+                    pre #{error.stack}
+

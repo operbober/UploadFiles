@@ -1,0 +1,40 @@
+extends layout
+
+block content
+    .main.container
+        .row
+            .col-lg-12.col-sm-12.col-12
+                a.btn.btn-primary(href="/logout")
+                    span.glyphicon.glyphicon-log-out #{" "} Logout
+                h4 Upload File :
+            form(method="POST" action="upload" enctype="multipart/form-data")
+                .col-lg-6.col-sm-6.col-12
+                    .input-group(style="margin-bottom: 5px")
+                        label.input-group-btn
+                            span.btn.btn-primary
+                                span.glyphicon.glyphicon-search #{" "} Browse&hellip;
+                                input(type="file" name="upload" style="display:none" multiple="true")
+                        input.form-control(type="text")
+                .col-lg-6.col-sm-6.col-12
+                    button.btn.btn-primary(type='submit')
+                        span.glyphicon.glyphicon-save #{" "} Upload
+            .col-lg-12.col-sm-12.col-12
+                if files.length > 0
+                    h4 Files:
+                    ul.list-group
+                        for file in files
+                            li.list-group-item
+                                a.remove-icon(href="/remove/" + file._id)
+                                    span.glyphicon.glyphicon-remove
+                                p name : #{" "}
+                                    a(href="/download/" + file._id) #{file.name}
+                                p type: #{file.type}
+                                p size: #{file.size}
+                                p upload: #{prettyDate(file.uploadDate)}
+                                -function prettyDate(date){
+                                -var d = date.getDate();
+                                -var monthNames = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun","Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ];
+                                -var m = monthNames[date.getMonth()];
+                                -var y = date.getFullYear();
+                                -return d+' '+m+' '+y;
+                                -}

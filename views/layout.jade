@@ -1,0 +1,20 @@
+doctype html
+html
+    head
+        title Simple
+        meta(name="viewport" content="width=device-width, initial-scale=1.0"
+        )
+        <!-- Latest compiled and minified CSS -->
+        link(rel='stylesheet', href='/css/bootstrap.min.css')
+        <!-- Optional theme -->
+        link(rel='stylesheet', href='/css/bootstrap-theme.min.css')
+
+        link(rel='stylesheet', href='/css/style.css')
+        link(rel="stylesheet", href="/css/error.css")
+
+        script(src="/js/jquery-3.2.1.min.js")
+        script(src="/js/bootstrap.min.js")
+        script(src="/js/upload.js")
+    body
+        div.page-header.text-center #{page}
+        block content
