@@ -1,10 +1,26 @@
+const normalizePort = (val) => {
+    const port = parseInt(val, 10);
+
+    if (isNaN(port)) {
+        // named pipe
+        return val;
+    }
+
+    if (port >= 0) {
+        // port number
+        return port;
+    }
+
+    return false;
+};
+
 module.exports = {
     "server": {
-        "ipAddress": "192.168.1.3",
-        "port": 3000
+        "ipAddress": "127.0.0.1",
+        "port": normalizePort(process.env.PORT || '3000')
     },
     "mongoose" : {
-        "url":"mongodb://192.168.1.3/upload"
+        "url": process.env.MONGODB_URI || "mongodb://192.168.1.3/upload"
     },
     "session": {
         "secret": "ololotrololo9voditelnlo",
