@@ -20,7 +20,7 @@ module.exports = {
         "port": normalizePort(process.env.PORT || '3000')
     },
     "mongoose" : {
-        "url": process.env.MONGODB_URI || "mongodb://192.168.1.3/upload"
+        "url": process.env.MONGODB_URI || "mongodb://127.0.0.1/upload"
     },
     "session": {
         "secret": "ololotrololo9voditelnlo",
